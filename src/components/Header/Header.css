@@ -1,0 +1,6 @@
+.menu li a {
+    color: white;
+}
+.menu li a:hover {
+    color: orange;
+}
