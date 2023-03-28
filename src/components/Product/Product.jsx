@@ -13,7 +13,7 @@ const Product = (props) => {
             <p className='mb-0'>Rating: {ratings} start</p>
             <p className='mb-0'>Manufacturer: {seller}</p>
           </div>
-          <button onClick={() => handleAddToCart(name)} className='rounded-0' style={{backgroundColor: '#FFE0B3'}}>Add to Cart 
+          <button onClick={() => handleAddToCart(props.product)} className='rounded-0' style={{backgroundColor: '#FFE0B3'}}>Add to Cart 
           <i className="fa-solid fa-cart-plus ms-2"></i></button>
         </div>
       </div>
