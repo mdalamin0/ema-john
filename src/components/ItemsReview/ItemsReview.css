@@ -1,0 +1,21 @@
+.product-img{
+    width: 90px;
+    height: 90px;
+}
+.btn-delete{
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+    background-color: rgba(235, 87, 87, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.delete-icon {
+    width: 27px;
+    color:#EB5757;
+    font-size: 20px;
+}
+.price{
+    margin-bottom: 0;
+}

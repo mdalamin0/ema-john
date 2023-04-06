@@ -4,3 +4,14 @@
     position: sticky;
     top: 0;
 }
+.clear-btn{
+    width: 100%;
+    color: white;
+    background-color: #FF3030;
+}
+.review-btn{
+    width: 100%;
+    color: white;
+    background-color: #FF9900;
+    margin-top: 10px;
+}
