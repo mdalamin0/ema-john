@@ -9,6 +9,10 @@ import {
 import Shop from './components/Shop/Shop';
 import OrderReview from './components/OrderReview/OrderReview';
 import CartProductsLoader from './CartProductsLoader/CartProductsLoader';
+import Login from './components/Login/Login/Login';
+import Register from './components/Login/Register/Register';
+import AuthProvider from './Provider/AuthProvider';
+import { ToastContainer } from 'react-toastify';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +27,14 @@ const router = createBrowserRouter([
         path: '/orders',
         element: <OrderReview></OrderReview>,
         loader: CartProductsLoader
+      },
+      {
+        path: '/login',
+        element: <Login></Login>
+      },
+      {
+        path: '/register',
+        element: <Register></Register>
       }
     ]
   }
@@ -30,6 +42,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <AuthProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </AuthProvider>
+    <ToastContainer/>
   </React.StrictMode>,
 )

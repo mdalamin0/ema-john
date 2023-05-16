@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../images/Logo.svg'
 import './Header.css'
 import { Link } from 'react-router-dom';
 import ActiveLink from '../ActiveLink/ActiveLink';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const Header = () => {
+    const { user, logOutUser } = useContext(AuthContext);
+
+    const handleLogOUt = () => {
+        logOutUser()
+        .then(result => {
+
+        })
+        .catch(error => {
+            console.log(error)
+        })
+    }
     return (
-        <nav style={{backgroundColor: '#1C2B35'}} className="navbar navbar-expand-lg">
+        <nav style={{ backgroundColor: '#1C2B35' }} className="navbar navbar-expand-lg">
             <div className="container">
                 <img src={logo} alt="" />
                 <button className="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,9 +35,16 @@ const Header = () => {
                         <li className="nav-item">
                             <ActiveLink className="nav-link" to="/inventory">Manage Inventory</ActiveLink>
                         </li>
+                        {user ? <li className="nav-item">
+                            <button onClick={handleLogOUt} className='nav-link text-white'>Log Out</button>
+                        </li> :
+                            <li className="nav-item">
+                                <ActiveLink className="nav-link" to="/login">Login</ActiveLink>
+                            </li>}
                         <li className="nav-item">
-                            <ActiveLink className="nav-link" to="/login">Login</ActiveLink>
+                            <ActiveLink className="nav-link" to="/register">Sign Up</ActiveLink>
                         </li>
+                        <li className='nav-link text-white'>{user?.displayName}</li>
                     </ul>
                 </div>
             </div>
