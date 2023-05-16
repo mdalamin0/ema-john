@@ -38,15 +38,15 @@ const Login = () => {
 
     const handleLoginWithGoogle = () => {
         createUserWithGoogle()
-        .then(result => {
-            console.log(result.user)
-        })
-        .catch(error => {
-            console.log(error.message)
-        })
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
     }
     return (
-        <div className='w-75 w-md-25 mx-auto mt-5 border rounded px-4 py-5' style={{ boxShadow: ' -10px 10px #FFE0B3' }}>
+        <div className=' w-25 mx-auto mt-5 border rounded px-4 py-5' style={{ boxShadow: ' -10px 10px #FFE0B3' }}>
             <h3>Login</h3>
             <Form onSubmit={handleSignIn}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -72,7 +72,7 @@ const Login = () => {
                 </Button>
                 <p className='text-center mt-3'>New to Ema-john? <Link to='/register'>Create new Account</Link> </p>
                 <div className="mt-5">
-                    <button onClick={handleLoginWithGoogle} className="w-100 "> <img className='' style={{ width: '20px' }} src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2008px-Google_%22G%22_Logo.svg.png" alt="" /> Continue with Google</button>
+                    <p onClick={handleLoginWithGoogle} className="w-100 d-flex align-items-center justify-content-center border border-2 rounded py-2  " style={{cursor: 'pointer'}}> <img className='me-2' style={{ width: '20px' }} src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2008px-Google_%22G%22_Logo.svg.png" alt="" /> Continue with Google</p>
                 </div>
             </Form>
         </div>
