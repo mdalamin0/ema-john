@@ -9,9 +9,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Shop = () => {
     const [products, setProducts] = useState([])
-    const [cart, setCart] = useState([])
+    const [cart, setCart] = useState([]);
     useEffect(() => {
-        fetch('products.json')
+        fetch('http://localhost:5000/products')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
@@ -20,7 +20,7 @@ const Shop = () => {
     useEffect(() => {
         const storedCart = getShoppingCart()
         for (const id in storedCart) {
-            const addedProduct = products.find(product => product.id === id)
+            const addedProduct = products.find(product => product._id === id)
             if (addedProduct) {
                 const quantity = storedCart[id];
                 addedProduct.quantity = quantity;
@@ -32,7 +32,7 @@ const Shop = () => {
     const handleAddToCart = (product) => {
         const newCart = [...cart, product]
         setCart(newCart)
-        addToDb(product.id)
+        addToDb(product._id)
     }
     const removeCart = () => {
         localStorage.removeItem('shopping-cart')
@@ -43,7 +43,7 @@ const Shop = () => {
             <div className='row'>
                 <div className=' products-container col-8 row row-cols-1 row-cols-lg-3 g-4'>
                     {
-                        products.map(product => <Product product={product} key={product.id} handleAddToCart={handleAddToCart}></Product>)
+                        products.map(product => <Product product={product} key={product._id} handleAddToCart={handleAddToCart}></Product>)
                     }
                 </div>
                 <div className=' col-4 cart-container'>
